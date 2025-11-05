@@ -88,6 +88,9 @@
     <div class="col-xl-8">
       <Widget10 className="h-md-100" />
     </div>
+    <div class="col-xl-12">
+      <TablesWidget13 className="h-md-100" />
+    </div>
     <!--end::Col-->
   </div>
   <!--end::Row-->
@@ -105,6 +108,7 @@ import Widget7 from "@/components/dashboard-default-widgets/Widget7.vue";
 import Widget8 from "@/components/dashboard-default-widgets/Widget8.vue";
 import Widget9 from "@/components/dashboard-default-widgets/Widget9.vue";
 import Widget10 from "@/components/dashboard-default-widgets/Widget10.vue";
+import TablesWidget13 from "@/components/widgets/tables/Widget13.vue";
 import MixedWidget5 from "@/components/widgets/mixed/Widget5.vue";
 
 // getAssetPath();

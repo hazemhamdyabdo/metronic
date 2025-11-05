@@ -2,27 +2,7 @@
   <!--begin::Tables Widget 13-->
   <div :class="widgetClasses" class="card">
     <!--begin::Header-->
-    <div class="card-header border-0 pt-5">
-      <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bold fs-3 mb-1">Recent Orders</span>
 
-        <span class="text-muted mt-1 fw-semibold fs-7">Over 500 orders</span>
-      </h3>
-      <div class="card-toolbar">
-        <!--begin::Menu-->
-        <button
-          type="button"
-          class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
-          data-kt-menu-flip="top-end"
-        >
-          <KTIcon icon-name="category" icon-class="fs-2" />
-        </button>
-        <Dropdown2></Dropdown2>
-        <!--end::Menu-->
-      </div>
-    </div>
     <!--end::Header-->
 
     <!--begin::Body-->

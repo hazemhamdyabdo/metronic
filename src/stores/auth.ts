@@ -15,6 +15,7 @@ export const useAuthStore = defineStore("auth", () => {
   const errors = ref({});
   const user = ref<User>({} as User);
   const isAuthenticated = ref(!!JwtService.getToken());
+  const tenant = ref<"owner" | "trainer" | "admin">("owner");
 
   function setAuth(authUser: User) {
     isAuthenticated.value = true;
@@ -88,6 +89,7 @@ export const useAuthStore = defineStore("auth", () => {
     errors,
     user,
     isAuthenticated,
+    tenant,
     login,
     logout,
     register,

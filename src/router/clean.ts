@@ -9,30 +9,23 @@ import { useConfigStore } from "@/stores/config";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/dashboard",
-    component: () => import("@/layouts/default-layout/DefaultLayout.vue"),
-    meta: {
-      middleware: "auth",
-    },
-    children: [
-      {
-        path: "/dashboard",
-        name: "dashboard",
-        component: () => import("@/views/Dashboard.vue"),
-        meta: {
-          pageTitle: "Dashboard",
-          breadcrumbs: ["Dashboards"],
-        },
-      },
-    ],
-  },
-  {
-    path: "/",
     component: () => import("@/layouts/AuthLayout.vue"),
     children: [
       {
+        path: "",
+        name: "landing",
+        component: () => import("@/views/Landing.vue"),
+        meta: {
+          pageTitle: "Welcome",
+        },
+      },
+      {
         path: "/sign-in",
-        name: "sign-in",
+        redirect: "/",
+      },
+      {
+        path: "/:tenant(owner|trainer|admin)/sign-in",
+        name: "sign-in-tenant",
         component: () =>
           import("@/views/crafted/authentication/basic-flow/SignIn.vue"),
         meta: {
@@ -55,6 +48,24 @@ const routes: Array<RouteRecordRaw> = [
           import("@/views/crafted/authentication/basic-flow/PasswordReset.vue"),
         meta: {
           pageTitle: "Password reset",
+        },
+      },
+    ],
+  },
+  {
+    path: "/",
+    component: () => import("@/layouts/default-layout/DefaultLayout.vue"),
+    meta: {
+      middleware: "auth",
+    },
+    children: [
+      {
+        path: "/:tenant(owner|trainer|admin)/dashboard",
+        name: "dashboard",
+        component: () => import("@/views/Dashboard.vue"),
+        meta: {
+          pageTitle: "Dashboard",
+          breadcrumbs: ["Dashboards"],
         },
       },
     ],
@@ -127,7 +138,7 @@ router.beforeEach((to, from, next) => {
     if (authStore.isAuthenticated) {
       next();
     } else {
-      next({ name: "sign-in" });
+      next({ name: "landing" });
     }
   } else {
     next();
