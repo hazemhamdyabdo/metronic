@@ -15,7 +15,7 @@
   >
     <KTSidebarLogo :sidebar-ref="sidebarRef"></KTSidebarLogo>
     <KTSidebarMenu></KTSidebarMenu>
-    <KTSidebarFooter></KTSidebarFooter>
+    <!-- <KTSidebarFooter></KTSidebarFooter> -->
   </div>
   <!--end::sidebar-->
 </template>
@@ -32,7 +32,7 @@ export default defineComponent({
   components: {
     KTSidebarLogo,
     KTSidebarMenu,
-    KTSidebarFooter,
+    // KTSidebarFooter,
   },
   setup() {
     const sidebarRef = ref<HTMLFormElement | null>(null);
